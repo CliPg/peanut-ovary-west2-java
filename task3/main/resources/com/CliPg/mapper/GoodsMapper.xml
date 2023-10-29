@@ -3,41 +3,43 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.CliPg.mapper.GoodsMapper">
+<mapper namespace="com.clipg.mapper.GoodsMapper">
 
     <!--查-->
     <!--查看所有-->
-    <select id="selectAll" resultType="com.CliPg.pojo.Goods">
-        select goods_id as goodsId,goods_name as goodsName,goods_price as goodsPrice,goods_num as goodsNum
+    <select id="selectAll" resultType="com.clipg.pojo.Goods">
+        select goods_id as goodsId, goods_name as goodsName, goods_price as goodsPrice, goods_num as goodsNum
         from order_management.goods
     </select>
-    <select id="selectAllPriceASC" resultType="com.CliPg.pojo.Goods">
-        select goods_id as goodsId,goods_name as goodsName,goods_price as goodsPrice,goods_num as goodsNum
+    <select id="selectAllPriceASC" resultType="com.clipg.pojo.Goods">
+        select goods_id as goodsId, goods_name as goodsName, goods_price as goodsPrice, goods_num as goodsNum
         from order_management.goods
         order by goodsPrice ASC
     </select>
-    <select id="selectAllPriceDESC" resultType="com.CliPg.pojo.Goods">
-        select goods_id as goodsId,goods_name as goodsName,goods_price as goodsPrice,goods_num as goodsNum
+    <select id="selectAllPriceDESC" resultType="com.clipg.pojo.Goods">
+        select goods_id as goodsId, goods_name as goodsName, goods_price as goodsPrice, goods_num as goodsNum
         from order_management.goods
         order by goodsPrice DESC
     </select>
-    <select id="selectAllIdDESC" resultType="com.CliPg.pojo.Goods">
-        select goods_id as goodsId,goods_name as goodsName,goods_price as goodsPrice,goods_num as goodsNum
+    <select id="selectAllIdDESC" resultType="com.clipg.pojo.Goods">
+        select goods_id as goodsId, goods_name as goodsName, goods_price as goodsPrice, goods_num as goodsNum
         from order_management.goods
         order by goodsId DESC
     </select>
     <!--查看指定-->
-    <select id="selectByName" resultType="com.CliPg.pojo.Goods">
-        select goods_id as goodsId,goods_name as goodsName,goods_price as goodsPrice,goods_num as goodsNum
-        from order_management.goods where goods_name = #{goodsName};
+    <select id="selectByName" resultType="com.clipg.pojo.Goods">
+        select goods_id as goodsId, goods_name as goodsName, goods_price as goodsPrice, goods_num as goodsNum
+        from order_management.goods
+        where goods_name = #{goodsName};
     </select>
 
-    <select id="selectById" resultType="com.CliPg.pojo.Goods">
-        select goods_id as goodsId,goods_name as goodsName,goods_price as goodsPrice,goods_num as goodsNum
-        from order_management.goods where goods_id = #{goodsId};
+    <select id="selectById" resultType="com.clipg.pojo.Goods">
+        select goods_id as goodsId, goods_name as goodsName, goods_price as goodsPrice, goods_num as goodsNum
+        from order_management.goods
+        where goods_id = #{goodsId};
     </select>
     <!--动态条件查询-->
-    <select id="selectByDynamicCondition" resultType="com.CliPg.pojo.Goods">
+    <select id="selectByDynamicCondition" resultType="com.clipg.pojo.Goods">
         select goods_id as goodsId,goods_name as goodsName,goods_price as goodsPrice,goods_num as goodsNum
         from order_management.goods
         <where>
@@ -74,16 +76,18 @@
 
 
     <!--增-->
-    <insert id="add">
-        insert into order_management.goods (goods_id,goods_name, goods_price, goods_num)
-        values (#{goodsId},#{goodsName},#{goodsPrice},#{goodsNum})
+    <insert id="insertGood">
+        insert into order_management.goods (goods_id, goods_name, goods_price, goods_num)
+        values (#{goodsId}, #{goodsName}, #{goodsPrice}, #{goodsNum})
     </insert>
 
 
     <!--删-->
     <!--删除指定-->
     <delete id="deleteById">
-        delete from order_management.goods where goods_id = #{id};
+        delete
+        from order_management.goods
+        where goods_id = #{id};
     </delete>
     <!--批量删除-->
     <delete id="deleteByIds">

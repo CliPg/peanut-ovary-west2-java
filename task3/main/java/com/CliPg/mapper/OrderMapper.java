@@ -1,37 +1,36 @@
-package com.CliPg.mapper;
+package com.clipg.mapper;
 
-import com.CliPg.pojo.Goods;
-import com.CliPg.pojo.Order;
+import com.clipg.pojo.Order;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
 
 public interface OrderMapper {
-    //1.查
-    //1.1查看所有
+    //查
+    //查看所有
     List<Order> selectAll();
-    //1.2查看详情
+    //查看详情
     Order selectByid(int id);
-    //1.3动态条件查询
+    //动态条件查询
     List<Order> selectByDynamicCondition(Map map);
-    //1.4时间降序
+    //时间降序
     List<Order> selectAllDateDESC();
-    //1.5时间升序
+    //时间升序
     List<Order> selectAllDateASC();
-    //1.6id降序
+    //id降序
     List<Order> selectAllIdDESC();
 
-    //2.改
+    //改
     //动态修改
     void updateDynamic(Order order);
 
-    //3.增
-    void add(Order orders);
+    //增
+    void insertOrder(Order orders);
 
-    //4.删
-    //4.1删除指定
+    //删
+    //删除指定
     void deleteById(int id);
-    //4.2批量删除
+    //批量删除
     void deleteByIds(@Param("orderIds") int [] ids);
 }
